@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>One Day</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('digital.ttf') format("truetype");
+		}
+	</style>
+	<link href="css/default.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/garden.js"></script>
+	<script type="text/javascript" src="js/functions.js"></script>
+</head>
+
+<body>
+<div id="mainDiv">
+	<div id="content">
+		<div id="code">
+			<span class="comments">##</span><br/>
+			<span class="comments"># I am a programmer.</span><br/>
+			<span class="comments"># so I celebrate Christmas in this way.Write a program.</span><br/>
+			<span class="comments">##</span><br/>
+			i = Boy(<span class="string">"Chen Ze Jun"</span>);<br/>
+			u = Girl(<span class="string">"Zhang Jia Yue"</span>);<br/>
+			<span class="comments"># Dec 25, 2016, I met you on the Onmyoji 2016. </span><br/>
+			i.met(u)<br/>
+			<span class="comments"># Shortly afterwards, I lose my heart to you. </span><br/>
+			i.lose_my_heart(u)<br/>
+			<span class="comments"># May 20, 2020, You became my girlfriend.</span><br/>
+			u.accepted(i)<br/>
+			<span class="comments"># Those were the happiest days of my life.</span><br/>
+			happy(u, i)<br/>
+			<span class="comments"># We enjoy 御魂ing together.</span><br/>
+			yuhun(u, i)<br/>
+			<span class="comments"># We enjoy 真蛇冒险ing together.</span><br/>
+			zhenshe(u, i)<br/>
+			<span class="comments"># We enjoy 协同ing together.</span><br/>
+			xietong(u, i)<br/>
+			<span class="comments"># We enjoy 王者ing together.</span><br/>
+			wangzhe(u, i)<br/>
+			<span class="comments"># Sometimes there were some conflicts between you and me.</span><br/>
+			conflict(u, i, sometimes=<span class="keyword">True</span>)<br/>
+			<span class="comments"># But we can still always get on well with each other.</span><br/>
+			I love you not because of who you are,but because of who I am when I am with you <br/>
+			<span class="comments"># To the world you may be one person,but to one person you may be the world.</span><br/>
+			while <span class="keyword">True</span>:<br/>
+			<span class="placeholder"></span><span class="keyword">if</span> u.with(i):<br/>
+			<span class="placeholder"></span><span class="placeholder"></span>u = everything<br/>
+			<span class="placeholder"></span><span class="keyword">else</span>:<br/>
+			<span class="placeholder"></span><span class="placeholder"></span>everything = u<br/>
+			<span class="comments"># But i lost you in the end.</span><br/>
+			Never frown,even when you are sad,because you never know who is falling in love with your smile.<br/>
+			<span class="comments"># ♥ ♥♥♥♥ ♥♥♥ ♥♥♥♥♥♥♥.</span><br/>
+		</div>
+		<div id="loveHeart">
+			<canvas id="garden"></canvas>
+			<div id="words">
+				<div id="messages">
+					Yue, I have met you for
+					<div id="elapseClock"></div>
+				</div>
+				<div id="loveu">
+					♥ Merry Christmas ♥<br/>
+					<div class="signature">- Chen Ze Jun | PaiPai</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="copyright">
+		Copyright © 2020 <a href='http://zhangjiayue520.com'>zhangjiayue520.com</a> 2016-2020
+	</div>
+</div>
+<script type="text/javascript">
+	var offsetX = $("#loveHeart").width() / 2;
+	var offsetY = $("#loveHeart").height() / 2 - 55;
+	var together = new Date();
+	// 此处月份介于 0 ~ 11 之间。用本地时间表示，如 8 月要用 7 表示。
+	together.setFullYear(2016, 12, 25);
+	together.setHours(15);
+	together.setMinutes(0);
+	together.setSeconds(0);
+	together.setMilliseconds(0);
+
+	if (!document.createElement('canvas').getContext) {
+		var msg = document.createElement("div");
+		msg.id = "errorMsg";
+		msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+";
+		document.body.appendChild(msg);
+		$("#code").css("display", "none")
+		$("#copyright").css("position", "absolute");
+		$("#copyright").css("bottom", "10px");
+		document.execCommand("stop");
+	} else {
+		setTimeout(function () {
+			startHeartAnimation();
+		}, 5000);
+
+		timeElapse(together);
+		setInterval(function () {
+			timeElapse(together);
+		}, 500);
+
+		adjustCodePosition();
+		$("#code").typewriter();
+	}
+</script>
+</body>
+</html>
